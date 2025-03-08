@@ -1,5 +1,5 @@
 class TodoController < ApplicationController
-  def get
+  def show
   end
 
   def create
@@ -9,5 +9,7 @@ class TodoController < ApplicationController
   end
 
   def destroy
+  end
+  def index
   end
 end
