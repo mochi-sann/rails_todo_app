@@ -1,0 +1,7 @@
+<h1>this is html </h1>
+<div id="task">
+
+<%= debug @todo %>
+  <%= @todo.title %>
+  <%= check_box_tag 'task[done]', '1', @todo.done? %>
+</div>
