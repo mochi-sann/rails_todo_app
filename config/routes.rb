@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :blogs
   root "todo#index"
   get "todo/:id", to: "todo#show"
   resources :todo
