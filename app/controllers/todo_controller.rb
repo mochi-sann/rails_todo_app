@@ -11,5 +11,6 @@ class TodoController < ApplicationController
   def destroy
   end
   def index
+    @todo = Todo.all
   end
 end
