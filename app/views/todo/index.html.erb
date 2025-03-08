@@ -1,15 +1,16 @@
 <h1>Todo#index</h1>
 <p>Find me in app/views/todo/index.html.erb</p>
 <div>
+  <%= link_to "New todo", new_todo_path %>
 </div>
 <h1> Todo list </h1>
 <div>
   <ul>
     <% @todo.each do |todo| %>
       <li>
-          <%= link_to todo.title , todo_path(todo.id)%>
+        <a href="/todo/<%= todo.id %>"><%= todo.title %>
+      </a>
     </li>
-
     <% end %>
   </ul>
 </div>
