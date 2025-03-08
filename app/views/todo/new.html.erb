@@ -1,12 +1,35 @@
+      
+<!-- app/views/todo/new.html.erb -->
 <h1>Todo#new</h1>
 <p>Find me in app/views/todo/new.html.erb</p>
-<%= form_with model: @todo do |form| %>
+
+<%= form_with model: @todo, url: todo_index_path do |form| %>
   <div>
     <%= form.label :title %>
-    <%= form.text_field :name %>
+    <%= form.text_field :title %>
+    <% if @todo.errors[:title].any? %>
+        <div style="color: red;">
+          <%= @todo.errors[:title].first %>
+        </div>
+    <% end %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+
+    
+<!---->
+<!-- <h1>Todo#new</h1> -->
+<!-- <p>Find me in app/views/todo/new.html.erb</p> -->
+<!-- <%= form_with model: @todo, url: todo_index_path do |form| %> -->
+<!--   <div> -->
+<!--     <%= form.label :title %> -->
+<!--     <%= form.text_field :title %> -->
+<!--   </div> -->
+<!---->
+<!--   <div> -->
+<!--     <%= form.submit %> -->
+<!--   </div> -->
+<!-- <% end %> -->
