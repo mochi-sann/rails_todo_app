@@ -10,3 +10,21 @@
 10.times do |i|
   Todo.find_or_create_by!(title: "Sample Post #{i + 1}",  done: rand(2)==1)
 end
+
+User.find_or_create_by!(email_address: "dev_user1@example.com") do |user|
+  user.password = "password"
+  user.password_confirmation = "password"
+  # user.name = "開発ユーザー1"
+end
+
+User.find_or_create_by!(email_address: "dev_user2@example.com") do |user|
+  user.password = "password"
+  user.password_confirmation = "password"
+  # user.name = "開発ユーザー2"
+end
+
+User.find_or_create_by!(email_address: "dev_user3@example.com") do |user|
+  user.password = "password"
+  user.password_confirmation = "password"
+  # user.name = "開発ユーザー3"
+end
