@@ -1,4 +1,5 @@
 class TodoController < ApplicationController
+    before_action :set_todo, only: %i[ show edit update destroy ]
   # def edit
   #   @todo = Todo.find(params[:id])
   # end
@@ -44,6 +45,15 @@ class TodoController < ApplicationController
     end
   end
 
+
+  def destroy
+    # @todo = Todo.find(set_todo_params)
+
+    if @todo.destroy
+      redirect_to root_path, notice: "Todo was successfully destroyed." # 削除成功時
+    end
+  end
+
   private
   def build_todo(params)
     Todo.new(title: params[:title], done: params[:done] || false)
@@ -55,4 +65,8 @@ class TodoController < ApplicationController
    def set_todo_params
      @todo = Todo.find(params[:id])
    end
+   def set_todo
+    @todo = Todo.find(params[:id])
+
+      end
 end

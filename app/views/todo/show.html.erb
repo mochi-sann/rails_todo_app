@@ -8,3 +8,4 @@
 </div>
 <%= link_to "Back", root_path %>
 <%= link_to "Edit", edit_todo_path(@todo) %>
+<%= button_to "Delete", @todo, method: :delete, data: { turbo_confirm: "Are you sure?"} %>
