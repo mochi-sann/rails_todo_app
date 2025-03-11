@@ -1,5 +1,7 @@
 class TodoController < ApplicationController
   before_action :set_todo, only: %i[show edit update destroy]
+  allow_unauthenticated_access only: %i[show index]
+
   # def edit
   #   @todo = Todo.find(params[:id])
   # end

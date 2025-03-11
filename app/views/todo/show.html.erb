@@ -1,11 +1,13 @@
 <h1>this is html </h1>
 <div id="task">
 
+  <% cache @todo do %>
   <p>
   <%= @todo.title %>
   </p>
   <%= check_box_tag 'task[done]', '1', @todo.done? %>
+  <% end %>
 </div>
 <%= link_to "Back", root_path %>
-<%= link_to "Edit", edit_todo_path(@todo) %>
-<%= button_to "Delete", @todo, method: :delete, data: { turbo_confirm: "Are you sure?"} %>
+<%= link_to "Edit", edit_todo_path(@todo)  if authenticated? %>
+<%= button_to "Delete", @todo, method: :delete, data: { turbo_confirm: "Are you sure?"} if authenticated?%>

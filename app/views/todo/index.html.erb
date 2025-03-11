@@ -1,7 +1,7 @@
 <h1>Todo#index</h1>
 <p>Find me in app/views/todo/index.html.erb</p>
 <div>
-  <%= link_to "New todo", new_todo_path %>
+  <%= link_to "New todo", new_todo_path if authenticated? %>
 </div>
 <h1> Todo list </h1>
 <div>
