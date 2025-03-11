@@ -39,11 +39,13 @@ class TodoController < ApplicationController
   end
 
   def edit
-    @todo = Todo.find(set_todo_params)
+  @todo = Todo.find(params[:id])
+    @todo = build_todo(params)
   end
 
   def update
-    @todo = Todo.find(set_todo_params)
+  @todo = Todo.find(params[:id])
+  @todo = build_todo(params)
     if @todo.update(todo_params)
       redirect_to @todo, notice: "Todo was successfully updated." # 更新成功時
     else
@@ -66,7 +68,7 @@ class TodoController < ApplicationController
   end
 
   def todo_params
-    params.require(:todo).permit(:title, :done) # ストロングパラメーター
+    params.require(:todo).permit(:title, :done, :featured_image) # ストロングパラメーター
     # params.require(:todo).permit(:title, :done) # ストロングパラメーター
   end
 

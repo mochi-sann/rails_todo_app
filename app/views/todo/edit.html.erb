@@ -2,4 +2,3 @@
 <p>Find me in app/views/todo/edit.html.erb</p>
 <%= render 'form', todo: @todo %>
 <%= link_to "Back", root_path %>
-<%= button_to "Delete", @todo, method: :delete, data: { turbo_confirm: "Are you sure?" } %>

@@ -5,9 +5,14 @@
   <p>
   <%= @todo.title %>
   </p>
+  <div>
+    <% if @todo.featured_image.attached? %>
+  <%= image_tag @todo.featured_image %>
+<% end %>
+  </div>
   <%= check_box_tag 'task[done]', '1', @todo.done? %>
   <% end %>
 </div>
 <%= link_to "Back", root_path %>
 <%= link_to "Edit", edit_todo_path(@todo)  if authenticated? %>
-<%= button_to "Delete", @todo, method: :delete, data: { turbo_confirm: "Are you sure?"} if authenticated?%>
+# <%= button_to "Delete", @todo, method: :delete, data: { turbo_confirm: "Are you sure?"} if authenticated?%>
