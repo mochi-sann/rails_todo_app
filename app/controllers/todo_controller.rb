@@ -29,6 +29,18 @@ class TodoController < ApplicationController
       render :new  # 保存失敗時（バリデーションエラーなど）はnewテンプレートを再表示
     end
   end
+  def edit
+    @todo = Todo.find(params[:id])
+  end
+
+  def update
+    @todo = Todo.find(params[:id])
+    if @todo.update(todo_params)
+      redirect_to @todo, notice: "Todo was successfully updated." # 更新成功時
+    else
+      render :edit  # 更新失敗時（バリデーションエラーなど）はeditテンプレートを再表示
+    end
+  end
   private def todo_params
     params.require(:todo).permit(:title) # ストロングパラメーター
   end
