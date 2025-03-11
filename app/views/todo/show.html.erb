@@ -6,3 +6,5 @@
   </p>
   <%= check_box_tag 'task[done]', '1', @todo.done? %>
 </div>
+<%= link_to "Back", root_path %>
+<%= link_to "Edit", edit_todo_path(@todo) %>

@@ -15,12 +15,14 @@ class TodoController < ApplicationController
     @todo = Todo.find(params[:id])
   end
   def new
-    @todo = todo_params
+    # @todo = Todo.new(title: params[:title], done: params[:done] || false)
+    @todo = build_todo(params)
     print @todo
     # @todo.save
   end
   def create
-  @todo = todo_params
+  @todo = build_todo(params)
+  # @todo = Todo.new(title: params[:title], done: params[:done] || false)
   @todo = Todo.new(todo_params)
     print @todo
     if @todo.save
@@ -41,11 +43,16 @@ class TodoController < ApplicationController
       render :edit  # 更新失敗時（バリデーションエラーなど）はeditテンプレートを再表示
     end
   end
-  private def todo_params
-    params.require(:todo).permit(:title, :done) # ストロングパラメーター
+
+  private
+  def build_todo(params)
+    Todo.new(title: params[:title], done: params[:done] || false)
+  end
+  def todo_params
+  params.require(:todo).permit(:title, :done) # ストロングパラメーター
+    # params.require(:todo).permit(:title, :done) # ストロングパラメーター
   end
    def set_todo_params
      @todo = Todo.find(params[:id])
    end
-  
 end
