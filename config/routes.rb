@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  resource :session
-  resources :passwords, param: :token
   root "todo#index"
   resources :todo
   resources :blogs
