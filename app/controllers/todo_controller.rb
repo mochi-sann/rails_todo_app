@@ -1,5 +1,5 @@
 class TodoController < ApplicationController
-    before_action :set_todo, only: %i[ show edit update destroy ]
+  before_action :set_todo, only: %i[show edit update destroy]
   # def edit
   #   @todo = Todo.find(params[:id])
   # end
@@ -12,19 +12,22 @@ class TodoController < ApplicationController
   def index
     @todos = Todo.all
   end
+
   def show
     @todo = Todo.find(params[:id])
   end
+
   def new
     # @todo = Todo.new(title: params[:title], done: params[:done] || false)
     @todo = build_todo(params)
     print @todo
     # @todo.save
   end
+
   def create
-  @todo = build_todo(params)
-  # @todo = Todo.new(title: params[:title], done: params[:done] || false)
-  @todo = Todo.new(todo_params)
+    @todo = build_todo(params)
+    # @todo = Todo.new(title: params[:title], done: params[:done] || false)
+    @todo = Todo.new(todo_params)
     print @todo
     if @todo.save
       redirect_to root_path, notice: "Todo was successfully created." # 保存成功時
@@ -32,6 +35,7 @@ class TodoController < ApplicationController
       render :new  # 保存失敗時（バリデーションエラーなど）はnewテンプレートを再表示
     end
   end
+
   def edit
     @todo = Todo.find(set_todo_params)
   end
@@ -45,7 +49,6 @@ class TodoController < ApplicationController
     end
   end
 
-
   def destroy
     # @todo = Todo.find(set_todo_params)
 
@@ -55,18 +58,21 @@ class TodoController < ApplicationController
   end
 
   private
+
   def build_todo(params)
     Todo.new(title: params[:title], done: params[:done] || false)
   end
+
   def todo_params
-  params.require(:todo).permit(:title, :done) # ストロングパラメーター
+    params.require(:todo).permit(:title, :done) # ストロングパラメーター
     # params.require(:todo).permit(:title, :done) # ストロングパラメーター
   end
-   def set_todo_params
-     @todo = Todo.find(params[:id])
-   end
-   def set_todo
-    @todo = Todo.find(params[:id])
 
-      end
+  def set_todo_params
+    @todo = Todo.find(params[:id])
+  end
+
+  def set_todo
+    @todo = Todo.find(params[:id])
+  end
 end
