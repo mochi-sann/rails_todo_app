@@ -15,13 +15,14 @@ class TodoController < ApplicationController
     @todo = Todo.find(params[:id])
   end
   def new
-    @todo = Todo.new(title: params[:title], done: false)
+    @todo = Todo.new
     print @todo
     # @todo.save
   end
   def create
-  @todo = Todo.new(title: params[:title], done: false)
-    @todo = Todo.new(todo_params)
+  # @todo = Todo.new(title: params[:title], done: params[:done] || false)
+  @todo = Todo.new
+        @product = Product.new(product_params)
     print @todo
     if @todo.save
       redirect_to root_path, notice: "Todo was successfully created." # 保存成功時
@@ -30,11 +31,11 @@ class TodoController < ApplicationController
     end
   end
   def edit
-    @todo = Todo.find(params[:id])
+    @todo = Todo.find(set_todo_params)
   end
 
   def update
-    @todo = Todo.find(params[:id])
+    @todo = Todo.find(set_todo_params)
     if @todo.update(todo_params)
       redirect_to @todo, notice: "Todo was successfully updated." # 更新成功時
     else
@@ -42,6 +43,10 @@ class TodoController < ApplicationController
     end
   end
   private def todo_params
-    params.require(:todo).permit(:title) # ストロングパラメーター
+    params.require(:todo).permit(:title, :done) # ストロングパラメーター
   end
+   def set_todo_params
+     @todo = Todo.find(params[:id])
+   end
+  
 end
