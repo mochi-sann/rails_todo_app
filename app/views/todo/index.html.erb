@@ -1,6 +1,6 @@
-<h1><%= t "todoHeading"%></h1>
+<h1><%= t( "todoHeading" )%></h1>
 <div>
-  <%= link_to "New todo", new_todo_path if authenticated? %>
+  <%= link_to t("app.index.new"), new_todo_path if authenticated? %>
 </div>
 <h1><%= t "app.index.todoList" %></h1>
 <div>

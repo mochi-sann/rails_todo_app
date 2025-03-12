@@ -48,8 +48,8 @@ end
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
-  gem 'rubocop', require: false
-  gem 'rubocop-rails', require: false # Rails専用のルールセット
+  gem "rubocop", require: false
+  gem "rubocop-rails", require: false # Rails専用のルールセット
 end
 
 group :test do

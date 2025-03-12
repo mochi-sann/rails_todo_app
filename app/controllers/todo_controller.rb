@@ -39,13 +39,13 @@ class TodoController < ApplicationController
   end
 
   def edit
-  @todo = Todo.find(params[:id])
+    @todo = Todo.find(params[:id])
     @todo = build_todo(params)
   end
 
   def update
-  @todo = Todo.find(params[:id])
-  @todo = build_todo(params)
+    @todo = Todo.find(params[:id])
+    @todo = build_todo(params)
     if @todo.update(todo_params)
       redirect_to @todo, notice: "Todo was successfully updated." # 更新成功時
     else

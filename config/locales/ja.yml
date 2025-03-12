@@ -1,8 +1,21 @@
 
 ja:
+  sessions:
+    placeholder:
+      email: "メールアドレス"
+      password: "パスワード"
+    submit:
+      sign_in: "サインイン"
+    link:
+      forgot_password: "パスワードを忘れましたか？"
+  Home: "ホーム"
+  auth:
+    logout: "ログアウト"
+    login: "ログイン"
   hello: "こんにちは世界"
   todoHeading: "TODOアプリ"
   app:
     index:
       todoList: "TODOリスト"
+      new: "TODOを作成"
 
