@@ -1,4 +1,3 @@
-<h1>this is html </h1>
 <div id="task">
 
   <% cache @todo do %>
@@ -7,7 +6,7 @@
   </p>
   <div>
     <% if @todo.featured_image.attached? %>
-  <%= image_tag @todo.featured_image %>
+  <%= image_tag @todo.featured_image, class: "rounded shadow-sm"%>
 <% end %>
   </div>
   <%= check_box_tag 'task[done]', '1', @todo.done? %>

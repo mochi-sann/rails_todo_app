@@ -8,3 +8,42 @@ img {
 button {
   @extend .btn, .btn-primary;
 }
+
+
+.todo-list {
+  li {
+
+    a {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      @extend .list-group-item, .list-group-item-action;
+
+      a {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+
+  @extend .list-group;
+}
+
+h1 {
+  font-weight: 800;
+}
+@mixin make-container($padding-x: $container-padding-x) {
+  width: 100%;
+  padding-right: $padding-x;
+  padding-left: $padding-x;
+  margin-right: auto;
+  margin-left: auto;
+}
+.custom-container {
+  max-width:  768px;
+  @include make-container();
+}
+.navbar {
+  max-width: 768px;
+
+  @extend .navbar-light, .bg-light ;
+}

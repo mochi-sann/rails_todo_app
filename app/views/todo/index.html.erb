@@ -4,10 +4,10 @@
 </div>
 <h1><%= t "app.index.todoList" %></h1>
 <div>
-  <ul>
+  <ul class="todo-list">
     <% @todos.each do |todo| %>
       <li>
-        <a href="/todo/<%= todo.id %>"><%= todo.title %>
+        <a class="list-grouplist-group-item" href="/todo/<%= todo.id %>"><%= todo.title %>
       </a>
     </li>
     <% end %>
