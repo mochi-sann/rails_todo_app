@@ -42,8 +42,3 @@ h1 {
   max-width:  768px;
   @include make-container();
 }
-.navbar {
-  max-width: 768px;
-
-  @extend .navbar-light, .bg-light ;
-}
