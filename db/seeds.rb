@@ -27,4 +27,5 @@ User.find_or_create_by!(email_address: "dev_user3@example.com") do |user|
 end
 10.times do |i|
   Todo.find_or_create_by!(title: "Sample Post #{i + 1} dev_user1", done: rand(2) == 1, user_id: 1)
+  Todo.find_or_create_by!(title: "Sample Post #{i + 1} dev_user2", done: rand(2) == 1, user_id: 2)
 end

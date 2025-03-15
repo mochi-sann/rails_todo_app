@@ -1,0 +1,10 @@
+{
+  "sqltools.connections": [
+    {
+      "previewLimit": 50,
+      "driver": "SQLite",
+      "name": "dev table",
+      "database": "\\\\wsl.localhost\\archi_linux\\home\\mochi\\codespace\\github.com\\mochi-sann\\rails_todo_app\\storage\\development.sqlite3"
+    }
+  ]
+}

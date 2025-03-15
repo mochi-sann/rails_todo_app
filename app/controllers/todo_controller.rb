@@ -1,4 +1,5 @@
 class TodoController < ApplicationController
+  include Authentication
   before_action :set_todo, only: %i[show edit update destroy]
   allow_unauthenticated_access only: %i[show index]
 
@@ -12,7 +13,11 @@ class TodoController < ApplicationController
   #   redirect_to todo_index_path
   # end
   def index
-    @todos = Todo.all
+    @todos = if authenticated?
+      Current.session.user.todos
+    else
+      Todo.all
+    end
   end
 
   def show
@@ -27,14 +32,12 @@ class TodoController < ApplicationController
   end
 
   def create
-    @todo = build_todo(params)
+    @todo = Current.session.user.todos.build(todo_params)
     # @todo = Todo.new(title: params[:title], done: params[:done] || false)
-    @todo = Todo.new(todo_params)
-    print @todo
     if @todo.save
-      redirect_to root_path, notice: "Todo was successfully created." # 保存成功時
+      redirect_to root_path, notice: "Todo created successfully."
     else
-      render :new  # 保存失敗時（バリデーションエラーなど）はnewテンプレートを再表示
+      render :new, status: :unprocessable_entity
     end
   end
 

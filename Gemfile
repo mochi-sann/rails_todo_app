@@ -54,6 +54,7 @@ group :development do
   gem "web-console"
   gem "rubocop", require: false
   gem "rubocop-rails", require: false # Rails専用のルールセット
+  gem "pry-rails", "~> 0.3.11"
 end
 
 group :test do
@@ -62,6 +63,5 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "pry-rails", "~> 0.3.11"
 
 gem "dartsass-rails", "~> 0.5.1"
