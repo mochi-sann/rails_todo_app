@@ -63,5 +63,11 @@ group :test do
   gem "selenium-webdriver"
 end
 
+group :development, :test do # 本番環境には不要なgemを記述
+  # Use RSpec for unit tests [https://rspec.info/]
+  gem "rspec-rails"
+  gem "factory_bot_rails"
+  gem "faker"
+end
 
 gem "dartsass-rails", "~> 0.5.1"
